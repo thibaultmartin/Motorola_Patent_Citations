@@ -12,7 +12,7 @@ import numpy as np
 data_dir='../data'
 
 # training and validation sets
-train_file = data_dir + 'blocking1114.csv'
+train_file = data_dir + '/blocking1114.csv'
 
 #Opening the blocking data
 TrainFile=pd.read_csv(train_file, header=None)
@@ -21,8 +21,8 @@ TrainFile.columns=['Application','Patent_Blocking']
 
 #Opening the Portfolio database
 
-portf = data_dir + 'SamplePortfolioforBerkeley.csv'
-Moto_database=pd.read_csv(portf, sep=';')
+portf = data_dir + '/SamplePortfolioforBerkeley.csv'
+Moto_database=pd.read_csv(portf, sep=',')
 
 
 #Creating the query
