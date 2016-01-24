@@ -37,7 +37,7 @@ def query(table):
     query='SELECT uspatentcitation.citation_id, uspatentcitation.patent_id FROM uspatentcitation WHERE uspatentcitation.citation_id='
     for k in table:
         if k!=table[-1]:
-            query+= foo(str(k)) + ' OR uspatentapplication.patent_id='
+            query+= foo(str(k)) + ' OR uspatentcitation.patent_id='
         else:
             query+= foo(str(k))
     return query
