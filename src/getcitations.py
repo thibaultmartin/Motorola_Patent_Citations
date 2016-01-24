@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 
 #Loading the data
-data_dir='/Users/Thibault/Documents/Boulot/UC Berkeley/CAPSTONE PATENT/'
+data_dir='../data'
 
 # training and validation sets
 train_file = data_dir + 'blocking1114.csv'
@@ -21,7 +21,7 @@ TrainFile.columns=['Application','Patent_Blocking']
 
 #Opening the Portfolio database
 
-portf = data_dir + 'SamplePortfolioforBerkeley .csv'
+portf = data_dir + 'SamplePortfolioforBerkeley.csv'
 Moto_database=pd.read_csv(portf, sep=';')
 
 
@@ -29,17 +29,17 @@ Moto_database=pd.read_csv(portf, sep=';')
 
 Moto_Patents=np.asarray(Moto_database['Patent #'])
 
-#Returns 
+#Returns
 def foo(s1):
     return "'{}'".format(s1)
-    
-def query(table): 
+
+def query(table):
     query='SELECT uspatentcitation.citation_id, uspatentcitation.patent_id FROM uspatentcitation WHERE uspatentcitation.citation_id='
     for k in table:
         if k!=table[-1]:
             query+= foo(str(k)) + ' OR uspatentapplication.patent_id='
         else:
-            query+= foo(str(k)) 
+            query+= foo(str(k))
     return query
 
 print(query(Moto_Patents))
@@ -56,7 +56,7 @@ print(query(Moto_Patents))
 
 SELECT uspatentcitation.citation_id, uspatentcitation.patent_id
 FROM uspatentcitation
-WHERE uspatentcitation.citation_id='7046910' 
+WHERE uspatentcitation.citation_id='7046910'
 OR uspatentcitation.citation_id='5903133'
 OR uspatentcitation.citation_id='8395587'
 OR uspatentcitation.citation_id='6408436'
